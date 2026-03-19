@@ -50,7 +50,7 @@ persist.vendor.overlay.izat.optin=rro
 debug.hwui.skia_atrace_enabled=false
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
-sdm.debug.disable_skip_validate=1
+sdm.debug.disable_skip_validate=0
 
 # IMS
 persist.dbg.ims_volte_enable=1
@@ -59,8 +59,7 @@ persist.dbg.vt_avail_ovr=1
 persist.dbg.wfc_avail_ovr=1
 
 # Logging
-persist.debug.coresight.config=stm-events
-ro.logd.kernel=true
+ro.logd.kernel=false
 
 # Media
 media.settings.xml=/vendor/etc/media_profiles_V1_0.xml
@@ -95,7 +94,7 @@ ro.vendor.sensors.sta_detect=true
 persist.timed.enable=true
 
 # WFD
-persist.debug.wfd.enable=1
+persist.debug.wfd.enable=0
 persist.hwc.enable_vds=1
 persist.sys.wfd.virtual=0
 
@@ -117,15 +116,11 @@ debug.gralloc.enable_fb_ubwc=1
 dalvik.vm.heapsize=36m
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
-#Disable Skip Validate
-sdm.debug.disable_skip_validate=1
-
 #Property to enable display default color mode
 vendor.display.enable_default_color_mode=1
 
 # Display Properties as per treble compliance
 vendor.gralloc.enable_fb_ubwc=1
-vendor.display.disable_skip_validate=1
 
 #ro.hdmi.enable=true
 #
@@ -217,10 +212,6 @@ persist.data.df.dev_name=rmnet0
 # 2 or anything else is camera2
 persist.radio.VT_CAM_INTERFACE=2
 
-#property to enable user to access Google WFD settings
-persist.debug.wfd.enable=1
-#Enable stm-events
-persist.debug.coresight.config=stm-events
 ##property to choose between virtual/external wfd display
 persist.sys.wfd.virtual=0
 

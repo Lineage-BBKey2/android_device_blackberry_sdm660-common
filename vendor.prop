@@ -136,7 +136,7 @@ dalvik.vm.heapstartsize=8m
 dalvik.vm.heaptargetutilization=0.75
 
 # Display
-ro.hwui.render_ahead=20
+ro.hwui.render_ahead=2
 
 # DRM
 drm.service.enabled=true
@@ -162,12 +162,12 @@ persist.backup.ntpServer=0.pool.ntp.org
 ro.vendor.qti.va_odm.support=1
 
 # Logging
-persist.vendor.stbDebugCtlEnable=1
+persist.vendor.stbDebugCtlEnable=0
 ro.logdumpd.enabled=0
 
 # Miscellaneous
 persist.sys.bbsys=on
-persist.vendor.qcomsysd.enabled=1
+persist.vendor.qcomsysd.enabled=0
 ro.cp_system_other_odex=1
 sys.vendor.shutdown.waittime=500
 
