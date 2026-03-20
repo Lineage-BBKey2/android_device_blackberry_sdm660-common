@@ -93,6 +93,7 @@
         "10000",
         "64"
       ],
+      "DefaultIndex": 1,
       "ResetOnInit": true
     },
     {

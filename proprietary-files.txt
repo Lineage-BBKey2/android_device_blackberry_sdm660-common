@@ -350,6 +350,10 @@ vendor/bin/pm-proxy|42383b9163716d8e6d81f0516e9cf09f22ea8b06
 vendor/bin/pm-service|b0a5d3491615ef9a237d93a393082105e3c0097c
 vendor/lib64/libperipheral_client.so|9bfd41e276e16b8f7c6808f3d87531fc5be4cdd5
 
+# Display calibration - from retail ACQ160
+vendor/etc/qdcm_calib_data_Livata_video_mode_dsi_panel.xml
+vendor/etc/qdcm_calib_data_Synaptics_video_mode_dsi_panel.xml
+
 # Postprocessing - from FP3 - 6.A.031.2
 vendor/bin/hw/vendor.display.color@1.0-service|815cc36f3722fbfb5fdd52f6678309d207888038
 vendor/bin/mm-pp-dpps|c04b41c500b1bcf81cb605b3ef0b3b1d5e8320c3

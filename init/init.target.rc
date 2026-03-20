@@ -84,6 +84,7 @@ on boot
     write /dev/cpuset/foreground/boost/cpus 0-7
     write /dev/cpuset/background/cpus 0-7
     write /dev/cpuset/system-background/cpus 0-7
+    chown system system /sys/devices/virtual/graphics/fb0/sre_enable
     ####Regionalization config and prop files####
     chmod 0644 /persist/speccfg/spec
     chmod 0644 /persist/speccfg/devicetype
