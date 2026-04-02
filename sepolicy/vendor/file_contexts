@@ -36,5 +36,9 @@
 # FocalTech NavKeys
 /sys/board_properties/virtualkeys\.fts_input_device_B    u:object_r:sysfs_virtualkeys:s0
 
+# Keyboard layout detection
+/(vendor|system/vendor)/bin/init\.keypad\.sh                                    u:object_r:qti_init_shell_exec:s0
+/(vendor|system/vendor)/bin/trace_util                                          u:object_r:qti_init_shell_exec:s0
+
 # Widevine
 /(vendor|system/vendor)/bin/hw/android.hardware.drm@1.0-service.widevine        u:object_r:hal_drm_widevine_exec:s0
