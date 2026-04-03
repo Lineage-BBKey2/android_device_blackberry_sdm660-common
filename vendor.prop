@@ -9,6 +9,7 @@ persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
 persist.bluetooth.a2dp_offload.disabled=true
 persist.vendor.audio.fluence.speaker=true
 persist.vendor.audio.fluence.voicecall=true
+persist.vendor.audio.fluence.voicecomm=true
 persist.vendor.audio.fluence.voicerec=false
 persist.vendor.audio.hifi.int_codec=true
 persist.vendor.audio.hw.binder.size_kbyte=1024
@@ -29,7 +30,7 @@ vendor.audio.feature.anc_headset.enable=true
 vendor.audio.feature.audiozoom.enable=false
 vendor.audio.feature.battery_listener.enable=false
 vendor.audio.feature.compr_cap.enable=false
-vendor.audio.feature.compr_voip.enable=true
+vendor.audio.feature.compr_voip.enable=false
 vendor.audio.feature.compress_in.enable=false
 vendor.audio.feature.compress_meta_data.enable=true
 vendor.audio.feature.concurrent_capture.enable=false
@@ -82,7 +83,7 @@ vendor.audio.use.sw.alac.decoder=true
 vendor.audio.use.sw.ape.decoder=true
 vendor.audio.volume.headset.gain.depcal=true
 vendor.audio_hal.period_size=192
-vendor.voice.path.for.pcm.voip=true
+vendor.voice.path.for.pcm.voip=false
 
 # Bluetooth
 bluetooth.device.class_of_device=90,2,12
