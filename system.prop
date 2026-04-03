@@ -24,10 +24,6 @@ ro.bluetooth.emb_wp_mode=true
 ro.bluetooth.wipower=true
 vendor.bluetooth.soc=cherokee
 
-# CABL (not functional with PIE display blobs)
-ro.qualcomm.cabl=0
-ro.vendor.display.cabl=0
-
 # Camera
 camera.aux.packagelist=org.codeaurora.snapcam,org.lineageos.aperture,net.sourceforge.opencamera
 camera.hal1.packagelist=com.dw.btime
@@ -167,7 +163,7 @@ bt.max.hfpclient.connections=1
 #force disable Bluetooth AAC by default
 persist.bt.a2dp.aac_disable=true
 
-# System property for cabl (disabled - not functional with PIE blobs)
+# System property for cabl
 ro.qualcomm.cabl=0
 ro.vendor.display.cabl=0
 
