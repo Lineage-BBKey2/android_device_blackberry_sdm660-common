@@ -268,6 +268,7 @@ PRODUCT_PACKAGES += \
     Sdm660LineageSDKOverlay \
     Sdm660SystemUIOverlay \
     Sdm660SettingsOverlay \
+    Sdm660SettingsProviderOverlay \
     Sdm660TelephonyOverlay \
     Sdm660TetheringOverlay \
     Sdm660WifiOverlayOverlay
