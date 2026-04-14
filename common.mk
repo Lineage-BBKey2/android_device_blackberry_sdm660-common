@@ -188,7 +188,6 @@ PRODUCT_PACKAGES += \
     gps.conf \
     gnss_antenna_info.conf \
     flp.conf \
-    izat.conf \
     lowi.conf \
     sap.conf \
     xtwifi.conf
