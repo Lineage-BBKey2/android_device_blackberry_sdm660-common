@@ -23,6 +23,7 @@ persist.camera.privapp.list=org.codeaurora.snapcam
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
 sdm.debug.disable_skip_validate=1
+vendor.display.disable_skip_validate=1
 
 # IMS
 persist.dbg.ims_volte_enable=1
