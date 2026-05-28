@@ -1,0 +1,24 @@
+# Camera provider service override — gralloc V4<->V1 compat shim.
+#
+# The BB OREO camera HAL module (/vendor/lib/hw/camera.sdm660.so) reads
+# gralloc private_handle_t at the V1 field offsets that Android 8 used.
+# On Android 15 (LOS22.2) the layout is V4 (fields layer_count/id/usage
+# precede size/offset/base, shifting everything by 20 bytes). Without
+# translation the JPEG encoder does memcpy() to a bogus address and dies
+# with SIGSEGV in JPEG_Enc thread.
+#
+# libcameracompat.so intercepts native_handle_clone() and rewrites the
+# handle in place from V4 -> V1 order. It is loaded via LD_PRELOAD; the
+# noatsecure SELinux grant (hal_camera_default.te) keeps AT_SECURE=0
+# so bionic doesn't scrub LD_PRELOAD across the init domain transition.
+
+service vendor.camera-provider-2-4 /vendor/bin/hw/android.hardware.camera.provider@2.4-service
+    override
+    interface android.hardware.camera.provider@2.4::ICameraProvider legacy/0
+    class hal
+    user cameraserver
+    group audio camera input drmrpc
+    ioprio rt 4
+    capabilities SYS_NICE
+    task_profiles CameraServiceCapacity MaxPerformance
+    setenv LD_PRELOAD /vendor/lib/libcameracompat.so

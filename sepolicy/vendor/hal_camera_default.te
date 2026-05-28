@@ -5,6 +5,11 @@ get_prop(hal_camera_default, persist_debug_prop)
 
 allow hal_camera_default persist_file:dir search;
 
+# Preserve LD_PRELOAD across init -> hal_camera_default exec so bionic
+# doesn't scrub LD_PRELOAD (AT_SECURE=0). Required for libcameracompat.so
+# to be loaded and fix gralloc V4->V1 handle translation in the JPEG encoder.
+allow init hal_camera_default:process noatsecure;
+
 # Allow to find graphics allocator service
 allow hal_camera_default hal_graphics_allocator_service:service_manager find;
 

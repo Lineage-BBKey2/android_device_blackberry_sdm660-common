@@ -128,7 +128,11 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service
+    android.hardware.camera.provider@2.4-service \
+    libcameracompat
+
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/camera/libcameracompat/init.cameracompat.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.cameracompat.rc
 
 # Configstore
 PRODUCT_PACKAGES += \
