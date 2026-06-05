@@ -94,6 +94,10 @@ BOARD_KERNEL_CMDLINE += sched_enable_hmp=1 sched_enable_power_aware=1
 BOARD_KERNEL_CMDLINE += service_locator.enable=1 swiotlb=1
 BOARD_KERNEL_CMDLINE += androidboot.configfs=true androidboot.usbcontroller=a800000.dwc3
 BOARD_KERNEL_CMDLINE += coherent_pool=1280K
+# Line below disables serialconsole which should improve performance. 
+# Comment it out to re-enable serial console for troubleshooting.
+BOARD_KERNEL_CMDLINE += androidboot.serialconsole=0
+
 # BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
 BOARD_KERNEL_BASE        := 0x0
