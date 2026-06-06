@@ -288,4 +288,4 @@ persist.backup.ntpServer="0.pool.ntp.org"
 persist.vendor.overlay.izat.optin=rro
 
 # Updater URL
-lineage.updater.uri=https://fumo.enterprises/ota/api/v1/{device}/{type}/noincr
+lineage.updater.uri=https://raw.githubusercontent.com/Lineage-BBKey2LE/distribution/main/{device}.json
