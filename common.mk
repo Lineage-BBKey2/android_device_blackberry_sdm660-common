@@ -239,8 +239,13 @@ PRODUCT_PACKAGES += \
 $(call soong_config_set,livedisplay_sdm,enable_dm,false)
 
 # Media
+
+# Only copy the common media profiles if a device tree hasn't overridden it (separate profile for luna is needed)
+ifneq ($(TARGET_USES_CUSTOM_MEDIA_PROFILES), true)
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
+    $(COMMON_PATH)/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
+endif
+PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
     $(COMMON_PATH)/media/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
 
