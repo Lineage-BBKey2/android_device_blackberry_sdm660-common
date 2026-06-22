@@ -13,7 +13,7 @@
 # limitations under the License.
 
 #
-# Generic key layout file for full alphabetic US English PC style external keyboards.
+# Generic key layout file for full alphabetic US English PC style external keyboards (BB QWERTZ adaption).
 #
 # This file is intentionally very generic and is intended to support a broad range of keyboards.
 # Do not edit the generic key layout to support a specific keyboard; instead, create
@@ -40,7 +40,7 @@ key 17    W
 key 18    E
 key 19    R
 key 20    T
-key 21    Y
+key 21    Z
 key 22    U
 key 23    I
 key 24    O
@@ -63,7 +63,7 @@ key 40    APOSTROPHE
 key 41    GRAVE
 key 42    SHIFT_LEFT
 key 43    BACKSLASH
-key 44    Z
+key 44    Y
 key 45    X
 key 46    C
 key 47    V

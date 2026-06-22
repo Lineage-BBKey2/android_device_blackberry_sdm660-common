@@ -29,4 +29,4 @@ keyboard.orientationAware = 0
 
 # Our custom key character map
 keyboard.characterMap = stmpe
-keyboard.layout = stmpe
+keyboard.layout = stmpe_azerty

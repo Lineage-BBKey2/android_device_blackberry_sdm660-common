@@ -12,6 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Copyright (C) 2015 BlackBerry Limited
+
+# Blackberry Physical Keyboard
+
 type ALPHA
 
 ### Basic QWERTY keys ###
@@ -20,197 +24,215 @@ key A {
     label:                              'A'
     base:                               'a'
     shift, capslock:                    'A'
-    shift+capslock:                     'a'
+    alt, lalt:                          '*'
+    sym:                                '='
 }
 
 key B {
     label:                              'B'
     base:                               'b'
     shift, capslock:                    'B'
-    shift+capslock:                     'b'
+    alt, lalt:                          '!'
+    sym:                                '\u00A1'
 }
 
 key C {
     label:                              'C'
     base:                               'c'
     shift, capslock:                    'C'
-    alt:                                '\u00e7'
-    shift+alt, alt+capslock:            '\u00c7'
-    shift+capslock:                     'c'
+    alt, lalt:                          '9'
+    sym:                                '\u00A3'
 }
 
 key D {
     label:                              'D'
     base:                               'd'
     shift, capslock:                    'D'
-    shift+capslock:                     'd'
+    alt, lalt:                          '5'
+    sym:                                '\u00B1'
 }
 
 key E {
     label:                              'E'
     base:                               'e'
     shift, capslock:                    'E'
-    alt:                                '\u0301'
-    shift+capslock:                     'e'
+    alt, lalt:                          '2'
+    sym:                                '{'
 }
 
 key F {
     label:                              'F'
     base:                               'f'
     shift, capslock:                    'F'
-    shift+capslock:                     'f'
+    alt, lalt:                          '6'
+    sym:                                '\u2022'
 }
 
 key G {
     label:                              'G'
     base:                               'g'
     shift, capslock:                    'G'
-    shift+capslock:                     'g'
+    alt, lalt:                          '/'
+    sym:                                '\\'
 }
 
 key H {
     label:                              'H'
     base:                               'h'
     shift, capslock:                    'H'
-    shift+capslock:                     'h'
+    alt, lalt:                          ':'
+    sym:                                '|'
 }
 
 key I {
     label:                              'I'
     base:                               'i'
     shift, capslock:                    'I'
-    alt:                                '\u0302'
-    shift+capslock:                     'i'
+    alt, lalt:                          '-'
+    sym:                                '>'
 }
 
 key J {
     label:                              'J'
     base:                               'j'
     shift, capslock:                    'J'
-    shift+capslock:                     'j'
+    alt, lalt:                          ';'
+    sym:                                '&'
 }
 
 key K {
     label:                              'K'
     base:                               'k'
     shift, capslock:                    'K'
-    shift+capslock:                     'k'
+    alt, lalt:                          '\''
+    sym:                                '\u201C'
 }
 
 key L {
     label:                              'L'
     base:                               'l'
     shift, capslock:                    'L'
-    shift+capslock:                     'l'
-    fn:                                 ';'
+    alt, lalt:                          '\"'
+    sym:                                '\u201D'
 }
 
 key M {
     label:                              'M'
     base:                               'm'
     shift, capslock:                    'M'
-    shift+capslock:                     'm'
+    alt, lalt:                          '.'
+    sym:                                '\u00BB'
 }
 
 key N {
     label:                              'N'
     base:                               'n'
     shift, capslock:                    'N'
-    alt:                                '\u0303'
-    shift+capslock:                     'n'
+    alt, lalt:                          ','
+    sym:                                '\u00AB'
 }
 
 key O {
     label:                              'O'
     base:                               'o'
     shift, capslock:                    'O'
-    shift+capslock:                     'o'
+    alt, lalt:                          '+'
+    sym:                                '^'
 }
 
 key P {
     label:                              'P'
     base:                               'p'
     shift, capslock:                    'P'
-    shift+capslock:                     'p'
-    fn:                                 '\\'
+    alt, lalt:                          '@'
+    sym:                                '%'
 }
 
 key Q {
     label:                              'Q'
     base:                               'q'
     shift, capslock:                    'Q'
-    shift+capslock:                     'q'
+    alt, lalt:                          '#'
+    sym:                                '~'
 }
 
 key R {
     label:                              'R'
     base:                               'r'
     shift, capslock:                    'R'
-    shift+capslock:                     'r'
+    alt, lalt:                          '3'
+    sym:                                '}'
 }
 
 key S {
     label:                              'S'
     base:                               's'
     shift, capslock:                    'S'
-    alt:                                '\u00df'
-    shift+capslock:                     's'
+    alt, lalt:                          '4'
+    sym:                                '\u00F7'
 }
 
 key T {
     label:                              'T'
     base:                               't'
     shift, capslock:                    'T'
-    shift+capslock:                     't'
+    alt, lalt:                          '('
+    sym:                                '['
 }
 
 key U {
     label:                              'U'
     base:                               'u'
     shift, capslock:                    'U'
-    alt:                                '\u0308'
-    shift+capslock:                     'u'
+    alt, lalt:                          '_'
+    sym:                                '<'
 }
 
 key V {
     label:                              'V'
     base:                               'v'
     shift, capslock:                    'V'
-    shift+capslock:                     'v'
+    alt, lalt:                          '?'
+    sym:                                '\u00BF'
 }
 
 key W {
     label:                              'W'
     base:                               'w'
     shift, capslock:                    'W'
-    shift+capslock:                     'w'
+    alt, lalt:                          '1'
+    sym:                                '`'
 }
 
 key X {
     label:                              'X'
     base:                               'x'
     shift, capslock:                    'X'
-    shift+capslock:                     'x'
+    alt, lalt:                          '8'
+    sym:                                '\u20AC'
 }
 
 key Y {
     label:                              'Y'
     base:                               'y'
     shift, capslock:                    'Y'
-    shift+capslock:                     'y'
+    alt, lalt:                          ')'
+    sym:                                ']'
 }
 
 key Z {
     label:                              'Z'
     base:                               'z'
     shift, capslock:                    'Z'
-    shift+capslock:                     'z'
+    alt, lalt:                          '7'
+    sym:                                '\u00A5'
 }
 
 key 0 {
     label:                              '0'
     base:                               '0'
-    shift, fn:                          ')'
+    shift, capslock:                    '0'
+    alt, lalt:                          '0'
 }
 
 key 1 {
@@ -232,9 +254,12 @@ key 3 {
 }
 
 key 4 {
-    label:                              '4'
-    base:                               '4'
-    shift, fn:                          '$'
+    label:                              '$'
+    base, capslock:                     '$'
+    shift:                              '\u20AC' # Euro
+    alt, lalt:                          '$'
+    sym:                                '$'
+    lalt+lshift:                        '\uE141' # Special character means this is speaker key
 }
 
 key 5 {
@@ -270,9 +295,7 @@ key 9 {
 
 key SPACE {
     label:                              ' '
-    base:                               ' '
-    alt, meta:                          fallback SEARCH
-    ctrl, fn:                           fallback LANGUAGE_SWITCH
+    base, shift, capslock, alt, lalt:   ' '
 }
 
 key ENTER {
