@@ -254,11 +254,11 @@ key 3 {
 }
 
 key 4 {
-    label:                              '$'
-    base, capslock:                     '$'
-    shift:                              '\u20AC' # Euro
-    alt, lalt:                          '$'
-    sym:                                '$'
+    label:                              '\u20AC' # Euro
+    base, capslock:                     '\u20AC' # Euro
+    shift:                              '$'
+    alt, lalt:                          '\u20AC' # Euro
+    sym:                                '\u20AC' # Euro
     lalt+lshift:                        '\uE141' # Special character means this is speaker key
 }
 
