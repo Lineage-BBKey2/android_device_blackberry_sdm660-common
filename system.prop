@@ -24,9 +24,9 @@ ro.bluetooth.emb_wp_mode=true
 ro.bluetooth.wipower=true
 vendor.bluetooth.soc=cherokee
 
-# CABL
-ro.qualcomm.cabl=2
-ro.vendor.display.cabl=2
+# CABL (not functional with PIE display blobs)
+ro.qualcomm.cabl=0
+ro.vendor.display.cabl=0
 
 # Camera
 camera.aux.packagelist=org.codeaurora.snapcam,org.lineageos.aperture,net.sourceforge.opencamera
@@ -50,7 +50,7 @@ persist.vendor.overlay.izat.optin=rro
 debug.hwui.skia_atrace_enabled=false
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
-sdm.debug.disable_skip_validate=0
+sdm.debug.disable_skip_validate=1
 
 # IMS
 persist.dbg.ims_volte_enable=1
@@ -167,9 +167,9 @@ bt.max.hfpclient.connections=1
 #force disable Bluetooth AAC by default
 persist.bt.a2dp.aac_disable=true
 
-# System property for cabl
-ro.qualcomm.cabl=2
-ro.vendor.display.cabl=2
+# System property for cabl (disabled - not functional with PIE blobs)
+ro.qualcomm.cabl=0
+ro.vendor.display.cabl=0
 
 #
 # System props for telephony
