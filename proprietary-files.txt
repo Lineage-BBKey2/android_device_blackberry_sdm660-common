@@ -163,11 +163,11 @@ vendor/lib64/vendor.qti.hardware.fm@1.0.so;MODULE_SUFFIX=_vendor|f6e23f902b7e152
 vendor/bin/loc_launcher|923d85bd727fb809b43fa86adbf739dd2b55285c
 vendor/bin/lowi-server;DISABLE_CHECKELF|5d18cc8854549c366f63cdce29178eb48c9b24b0
 vendor/bin/mlid|46ddb37a149cf09bff592437a41ff30e849c234e
-vendor/bin/xtra-daemon|0d15669c226784e4033ddee6cf396c39ff3d2bdf
+vendor/bin/xtra-daemon|0d15669c226784e4033ddee6cf396c39ff3d2bdf|049ad7e15df6ad97ba2ff345527a34ad2db49a5d
 vendor/bin/xtwifi-client|7e5cb0670b20c12fbc5cbf4fb642efdd72e92f46
 vendor/bin/xtwifi-inet-agent|73eb9393ba634d805055eea3fbea64785063be4b
 vendor/etc/cacert_location.pem|0789bf799c7e45d352a83e2f79ddb0cea86db85b
-vendor/etc/izat.conf|a795b79b68e3705c0334432dded0c0d246f47cb3|5f2d458688a4ede50af009fc3d2c91db45176e93
+vendor/etc/izat.conf|a795b79b68e3705c0334432dded0c0d246f47cb3|a6041ab6c9da7c8a0ca136518a8f55a6d6321dfd
 vendor/etc/lowi.conf|2045e83483849a124e5fef052b59190f1b784df0
 vendor/etc/sap.conf|b5ea86d9d9ee36dc13194474d343dae36f6fa032
 vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml|6514b13f55abc0acc28e004c35ff93fb972d61a9
@@ -201,6 +201,12 @@ vendor/lib64/vendor.qti.gnss@2.1.so|148c38d7bb7f604637ff38d25aed75f412ebea3e
 vendor/lib64/vendor.qti.gnss@3.0.so|511a8354bb199b1b4d0d264762bdc078fd9f3e6b
 vendor/lib64/vendor.qti.gnss@4.0-service.so|218e7e15a1d3b58bb8adb695e7b37036977c5573
 vendor/lib64/vendor.qti.gnss@4.0.so|7ba7853e772806f98fe60243542498a146dfe248
+
+# GPS (gps-xtra-fix3 additions)
+vendor/etc/gps.prop|da39a3ee5e6b4b0d3255bfef95601890afd80709
+vendor/etc/xtra_single_boot.conf|98faf411f0a7c40b26191209f1143bb2a5a5f8c6
+vendor/lib64/libloc_pla.so|8d9c3311d907aaea1190edae4a55b4e4b62d5b89
+vendor/lib64/libloc_stub.so|4fde5653ae485cc294eb5a087f02bcbdd1614334
 
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
