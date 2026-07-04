@@ -277,11 +277,11 @@
                 <route type="mix" sink="voice_rx"
                        sources="Telephony Rx"/>
                 <route type="mix" sink="BT SCO"
-                       sources="primary output,deep_buffer,compressed_offload,voip_rx"/>
+                       sources="primary output,deep_buffer,compressed_offload,voip_rx,Telephony Rx"/>
                 <route type="mix" sink="BT SCO Headset"
-                       sources="primary output,deep_buffer,compressed_offload,voip_rx"/>
+                       sources="primary output,deep_buffer,compressed_offload,voip_rx,Telephony Rx"/>
                 <route type="mix" sink="BT SCO Car Kit"
-                       sources="primary output,deep_buffer,compressed_offload,voip_rx"/>
+                       sources="primary output,deep_buffer,compressed_offload,voip_rx,Telephony Rx"/>
             </routes>
 
         </module>
