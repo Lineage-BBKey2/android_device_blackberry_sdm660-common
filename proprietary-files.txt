@@ -205,8 +205,6 @@ vendor/lib64/vendor.qti.gnss@4.0.so|7ba7853e772806f98fe60243542498a146dfe248
 # GPS (gps-xtra-fix3 additions)
 vendor/etc/gps.prop|da39a3ee5e6b4b0d3255bfef95601890afd80709
 vendor/etc/xtra_single_boot.conf|98faf411f0a7c40b26191209f1143bb2a5a5f8c6
-vendor/lib64/libloc_pla.so|8d9c3311d907aaea1190edae4a55b4e4b62d5b89
-vendor/lib64/libloc_stub.so|4fde5653ae485cc294eb5a087f02bcbdd1614334
 
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
