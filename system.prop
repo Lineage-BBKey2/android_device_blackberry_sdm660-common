@@ -277,4 +277,4 @@ persist.vendor.overlay.izat.optin=rro
 debug.pm.disable_app_link_verification=true
 
 # Updater URL
-lineage.updater.uri=https://raw.githubusercontent.com/Lineage-BBKey2LE/distribution/main/{device}.json
+lineage.updater.uri=https://raw.githubusercontent.com/Lineage-BBKey2/distribution/main/{device}.json
