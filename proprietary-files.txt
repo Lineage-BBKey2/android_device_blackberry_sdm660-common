@@ -4,6 +4,15 @@
 # ANT+
 system/lib64/com.qualcomm.qti.ant@1.0.so
 
+# BlackBerry framework
+# NOTE: The stock ACQ160 com.blackberry.only.jar is stripped of its classes.dex, 
+# which causes building to fail. To generate the correct file from a stock device or dump:
+# 1. Extract system/framework/oat/arm64/com.blackberry.only.vdex
+# 2. Run: vdexExtractor -i com.blackberry.only.vdex
+# 3. Rename com.blackberry.only_classes.dex to classes.dex
+# 4. Inject it into the JAR: zip -u com.blackberry.only.jar classes.dex
+system/framework/com.blackberry.only.jar
+
 # Bluetooth - from DDV_sprout - 00WW_3_690_SP07
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|07d96d0d3c4a500b14ea3c97e02b9eb5ee2bbc4d
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|f4ee3b2da2b08647447869ade86ec63f7340accc
