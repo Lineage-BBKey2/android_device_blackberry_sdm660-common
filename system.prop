@@ -261,8 +261,14 @@ persist.vendor.camera.preview.ubwc=0
 #set maximum supported adapter voltage
 persist.chg.max_volt_mv=9000
 
-# Use eight voice volume steps
-ro.config.vc_call_vol_steps=8
+# Use fourteen voice volume steps
+ro.config.vc_call_vol_steps=14
+
+# Use thirty media volume steps
+ro.config.media_vol_steps=30
+
+# Note: Notification and ring volume steps cannot be set here. Instead, they are set in 
+# device/blackberry/[athena or luna]/overlay/frameworks/base/core/res/res/values/config.xml.
 
 #system prop for Bluetooth SOC type
 vendor.bluetooth.soc=cherokee
@@ -275,6 +281,9 @@ persist.vendor.overlay.izat.optin=rro
 
 # Disable app link domain verification
 debug.pm.disable_app_link_verification=true
+
+# Reduce UI animation stutter
+ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 
 # Updater URL
 lineage.updater.uri=https://raw.githubusercontent.com/Lineage-BBKey2/distribution/main/{device}.json
