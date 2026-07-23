@@ -104,11 +104,14 @@ bluetooth.profile.pbap.server.enabled?=true
 bluetooth.profile.sap.server.enabled?=true
 persist.vendor.bt.enable.splita2dp=true
 persist.vendor.bt.splita2dp.44_1_war=false
+persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxhd-aac
+persist.vendor.btstack.enable.splita2dp=true
 persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxhd-aac-ldac
 persist.vendor.qcom.bluetooth.enable.splita2dp=true
 persist.vendor.qcom.bluetooth.soc=cherokee
 ro.vendor.bt.bdaddr_path=/data/misc/bluetooth/bt_mac.bin
 ro.vendor.bluetooth.wipower=false
+vendor.bluetooth.soc=cherokee
 vendor.qcom.bluetooth.soc=cherokee
 
 ## This is a workaround for the Bluetooth sanitize shadow call stack (SCS)
@@ -122,11 +125,21 @@ camera.aux.packagelist=net.sourceforge.opencamera,org.codeaurora.snapcam,org.lin
 camera.disable_zsl_mode=0
 camera.panorama.quality=middle
 persist.vendor.camera.fdvideo=1
+persist.vendor.camera.preview.ubwc=0
+persist.vendor.camera.privapp.list=org.codeaurora.snapcam
 persist.vendor.camera.ven_hdr=0
 ro.camera.record.anim.delay=200
 ro.camera.switch.anim.delay=300
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,org.lineageos.aperture,net.sourceforge.opencamera
 vendor.camera.c2d.rotation=1
+
+# CNE
+persist.vendor.cne.feature=1
+
+# CPU
+#min/max cpu in core control
+ro.vendor.qti.core_ctl_min_cpu=2
+ro.vendor.qti.core_ctl_max_cpu=4
 
 # Dalvik
 dalvik.vm.heapgrowthlimit=256m
@@ -135,6 +148,18 @@ dalvik.vm.heapminfree=512k
 dalvik.vm.heapsize=512m
 dalvik.vm.heapstartsize=8m
 dalvik.vm.heaptargetutilization=0.75
+
+# Data
+ro.vendor.use_data_netmgrd=true
+persist.vendor.data.mode=concurrent
+
+# Display
+#Property to enable display default color mode
+vendor.display.enable_default_color_mode=1
+#Display Properties as per treble compliance
+vendor.gralloc.enable_fb_ubwc=1
+#Property for cabl
+ro.vendor.display.cabl=0
 
 # DRM
 drm.service.enabled=true
@@ -158,16 +183,27 @@ ro.opengles.version=196610
 # GPS
 persist.backup.ntpServer=0.pool.ntp.org
 ro.vendor.qti.va_odm.support=1
+persist.vendor.overlay.izat.optin=rro
 
 # Logging
 persist.vendor.stbDebugCtlEnable=0
 ro.logdumpd.enabled=0
+
+# Media
+vendor.vidc.enc.disable_bframes=1
+vendor.vidc.dec.enable.downscalar=1
+vendor.vidc.enc.disable.pq=true
 
 # Miscellaneous
 persist.sys.bbsys=on
 persist.vendor.qcomsysd.enabled=0
 ro.cp_system_other_odex=1
 sys.vendor.shutdown.waittime=500
+vendor.mm.enable.qcom_parser=13631487
+#property for vendor specific library
+ro.vendor.at_library=libqti-at.so
+#Increase cached app limit
+ro.vendor.qti.sys.fw.bg_apps_limit=60
 
 # OEM Unlock
 ro.oem_unlock_supported=1
@@ -179,6 +215,7 @@ ro.vendor.extension_library=libqti-perfd-client.so
 vendor.power.pasr.enabled=true
 
 # Radio
+persist.vendor.radio.atfwd.start=true
 persist.vendor.radio.enableadvancedscan=true
 persist.vendor.radio.apm_sim_not_pwdn=1
 persist.vendor.radio.sib16_support=1
@@ -190,10 +227,17 @@ persist.vendor.radio.data_con_rprt=1
 persist.vendor.radio.data_ltd_sys_ind=1
 vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 
+# RIL
+vendor.service.qti.ims.enabled=1
+
 # Sensors
 ro.vendor.sdk.sensors.gestures=false
 ro.vendor.sensors.cmc=false
+ro.vendor.sensors.dev_ori=true
 ro.vendor.sensors.facing=false
+ro.vendor.sensors.mot_detect=true
+ro.vendor.sensors.pmd=true
+ro.vendor.sensors.sta_detect=true
 
 # Stagefright
 debug.stagefright.omx_default_rank.sw-audio=1
