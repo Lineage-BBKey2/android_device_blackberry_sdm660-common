@@ -226,7 +226,12 @@ function configure_zram_parameters() {
     MemTotalStr=`cat /proc/meminfo | grep MemTotal`
     MemTotal=${MemTotalStr:16:8}
 
-    low_ram=`getprop ro.config.low_ram`
+    # Select zram compression algo from custom prop if populated (kernel default is lzo).
+    requested=$(getprop persist.vendor.key2.zram.compressor)
+    if [ -n "$requested" ] && \
+        grep -qw "$requested" /sys/block/zram0/comp_algorithm; then
+            echo "$requested" > /sys/block/zram0/comp_algorithm
+    fi
 
     # Zram disk - 75% for Go devices.
     # For 512MB Go device, size = 384MB, set same for Non-Go.
@@ -234,12 +239,6 @@ function configure_zram_parameters() {
     # For 2GB-3GB Non-Go device, size = 1GB
     # For 3GB-5GB Non-Go device, size = 2GB (Key2 LE)
     # For >=5GB Non-Go device, size = 3GB (Key2)
-    # And enable lz4 zram compression for Go targets.
-
-    if [ "$low_ram" == "true" ]; then
-        echo lz4 > /sys/block/zram0/comp_algorithm
-    fi
-
     if [ -f /sys/block/zram0/disksize ]; then
         if [ $MemTotal -le 524288 ]; then
             echo 402653184 > /sys/block/zram0/disksize
@@ -425,9 +424,9 @@ else
     fi
 
     # Set allocstall_threshold to 0 for all targets.
-    # Set swappiness to 100 for all targets
+    # Set swappiness to 60 for all targets
     echo 0 > /sys/module/vmpressure/parameters/allocstall_threshold
-    echo 100 > /proc/sys/vm/swappiness
+    echo 60 > /proc/sys/vm/swappiness
 
     configure_zram_parameters
 
