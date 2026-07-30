@@ -152,6 +152,3 @@ debug.pm.disable_app_link_verification=true
 
 # Reduce UI animation stutter
 ro.surface_flinger.max_frame_buffer_acquired_buffers=3
-
-# Updater URL
-lineage.updater.uri=https://raw.githubusercontent.com/Lineage-BBKey2/distribution/main/{device}.json

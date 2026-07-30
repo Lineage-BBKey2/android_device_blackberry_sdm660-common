@@ -329,9 +329,6 @@ firmware_directories /vendor/firmware_mnt/image/
 /sys/class/leds/blue     delay_off    0640    system    system
 /sys/class/leds/blue     breath       0640    system    system
 
-# Touch keypad
-/sys/devices/soc/c175000.i2c/i2c-1/1-0020/input/input*    turn_off    0660    system    system
-
 # NPU device
 /dev/msm_npu             0644   system     system
 

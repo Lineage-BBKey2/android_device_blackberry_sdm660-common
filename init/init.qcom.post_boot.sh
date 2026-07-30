@@ -2390,6 +2390,20 @@ case "$target" in
             # disable thermal bcl hotplug to switch governor
             echo 0 > /sys/module/msm_thermal/core_control/enabled
 
+            # Determine if device is Athena or Luna
+            prop_device=$(getprop ro.product.device)
+            prop_sysname=$(getprop ro.product.system.name)
+            prop_lindev=$(getprop ro.lineage.device)
+            is_athena="0"
+            is_luna="0"
+            if [ "$prop_device" = "bbf100" ] || [ "$prop_device" = "athena" ] || \
+               [ "$prop_sysname" = "lineage_athena" ] || [ "$prop_lindev" = "athena" ]; then
+                is_athena="1"
+            elif [ "$prop_device" = "bbe100" ] || [ "$prop_device" = "luna" ] || \
+                 [ "$prop_sysname" = "lineage_luna" ] || [ "$prop_lindev" = "luna" ]; then
+                is_luna="1"
+            fi
+
             # online CPU0
             echo 1 > /sys/devices/system/cpu/cpu0/online
             # configure governor settings for little cluster
@@ -2401,7 +2415,11 @@ case "$target" in
             echo 20000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
             echo 1401600 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
             echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy
-            echo "85 1747200:95" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
+            if [ "$is_athena" = "1" ]; then
+                echo "85 1747200:95" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
+            elif [ "$is_luna" = "1" ]; then
+                echo "85 1612800:95" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
+            fi
             echo 39000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time
             echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis
             echo 633600 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
@@ -2418,7 +2436,11 @@ case "$target" in
             echo 20000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
             echo 1401600 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq
             echo 0 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy
-            echo "85 1401600:90 2150400:95" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
+            if [ "$is_athena" = "1" ]; then
+                echo "85 1401600:90 2150400:95" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
+            elif [ "$is_luna" = "1" ]; then
+                echo "85 1401600:90 1804800:95" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
+            fi
             echo 39000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time
             echo 0 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis
             echo 1113600 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
