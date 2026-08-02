@@ -152,3 +152,6 @@ debug.pm.disable_app_link_verification=true
 
 # Reduce UI animation stutter
 ro.surface_flinger.max_frame_buffer_acquired_buffers=3
+
+# Enable adoptable storage
+persist.sys.adoptable=force_on
