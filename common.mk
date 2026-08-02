@@ -168,6 +168,11 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(COMMON_PATH)/configs/keylayout/keylayout/,$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/) \
     $(call find-copy-subdir-files,*,$(COMMON_PATH)/configs/keylayout/idc,$(TARGET_COPY_OUT_VENDOR)/usr/idc/)
 
+# FM radio - Qualcomm
+PRODUCT_PACKAGES += \
+    FM2 \
+    qcom.fmradio
+
 # Framework Detect
 PRODUCT_PACKAGES += \
     libqti_vndfwk_detect \

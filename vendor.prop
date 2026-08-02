@@ -169,9 +169,6 @@ persist.gsmapp.ezincall.video=false
 persist.sys.screenmode=1
 persist.vendor.dpm.feature=11
 
-# FM
-vendor.hw.fm.init=0
-
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
