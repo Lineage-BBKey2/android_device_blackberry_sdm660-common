@@ -156,6 +156,11 @@ BOARD_USES_QC_TIME_SERVICES := true
 
 # SELinux
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
+
+# Device-specific policy for platform and system_ext applications
+SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/public
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
+
 include device/lineage/sepolicy/libperfmgr/sepolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 

@@ -1,0 +1,8 @@
+# Allow RevampedFMRadio to read the Qualcomm Bluetooth SoC property.
+get_prop(revamped_fm_app, vendor_bluetooth_prop)
+
+# Allow RevampedFMRadio to read Lineage's FM radio application property.
+get_prop(revamped_fm_app, vendor_fm_radio_app_prop)
+
+# Allow RevampedFMRadio to access the Qualcomm FM HIDL HAL.
+hal_client_domain(revamped_fm_app, hal_fm)

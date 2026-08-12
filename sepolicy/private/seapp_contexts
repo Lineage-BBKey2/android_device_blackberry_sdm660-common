@@ -1,0 +1,2 @@
+# RevampedFMRadio
+user=system seinfo=platform name=com.android.fmradio isPrivApp=true domain=revamped_fm_app type=system_app_data_file levelFrom=all

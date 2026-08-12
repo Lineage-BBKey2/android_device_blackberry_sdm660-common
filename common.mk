@@ -171,7 +171,8 @@ PRODUCT_COPY_FILES += \
 # FM radio - Qualcomm
 PRODUCT_PACKAGES += \
     FM2 \
-    qcom.fmradio
+    qcom.fmradio \
+    RevampedFMRadio
 
 # Framework Detect
 PRODUCT_PACKAGES += \

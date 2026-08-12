@@ -1,0 +1,2 @@
+# SELinux domain for the platform-signed RevampedFMRadio system application.
+type revamped_fm_app, domain;
