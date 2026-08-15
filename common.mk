@@ -162,6 +162,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor
 
+# Vibrator (QTI service supporting qti-haptics input FF on 4.19)
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.vibrator.service
+
 # Keyboard
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(COMMON_PATH)/configs/keylayout/keychars,$(TARGET_COPY_OUT_VENDOR)/usr/keychars/) \
@@ -419,11 +423,6 @@ PRODUCT_PACKAGES_DEBUG += \
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.3-service.dual_role_usb
-
-# Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl \
-    android.hardware.vibrator@1.0-service
 
 # VNDK
 # Update this list with what each blob is actually for
