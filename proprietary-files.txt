@@ -13,10 +13,11 @@ system/lib64/com.qualcomm.qti.ant@1.0.so
 # 4. Inject it into the JAR: zip -u com.blackberry.only.jar classes.dex
 system/framework/com.blackberry.only.jar
 
-# Bluetooth - from DDV_sprout - 00WW_3_690_SP07
+# Bluetooth - from DDV_sprout - 00WW_3_690_SP07 unless noted otherwise
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|07d96d0d3c4a500b14ea3c97e02b9eb5ee2bbc4d
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|f4ee3b2da2b08647447869ade86ec63f7340accc
-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|14d44c77a6f0b305ec7e03e679d7692884a3985d
+# HAL impl from ASUS 4.19 build
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|c6be436d0f66aafd5be3aa51431d4fc02c50971d
 vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.1-impl.so|156ec51ccb53f667605cf99422abf9357888b4b6
 vendor/lib64/libbt-hidlclient.so|ff301380cf3c0ff68d2b7fcda3ba428ebf0a859e
 vendor/lib64/libbtnv.so|0c74a43550b939b9496b03b3285fa950cf560c48
