@@ -99,3 +99,9 @@ sh_binary {
     src: "init.qcom.sh",
     soc_specific: true,
 }
+
+sh_binary {
+    name: "loggy.sh",
+    src: "loggy.sh",
+    vendor: true,
+}

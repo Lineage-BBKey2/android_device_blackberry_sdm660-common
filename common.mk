@@ -367,6 +367,7 @@ PRODUCT_PACKAGES += \
     init.qcom.sensors.sh \
     init.qcom.sh \
     init.qcom.usb.sh \
+    loggy.sh \
 
 # RenderScript
 PRODUCT_PACKAGES += \
