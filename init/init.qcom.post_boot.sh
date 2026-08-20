@@ -2352,11 +2352,15 @@ case "$target" in
         fi
 
         if [ $panel -gt 1080 ]; then
-            echo 2 > /proc/sys/kernel/sched_window_stats_policy
-            echo 5 > /proc/sys/kernel/sched_ravg_hist_size
+            [ -w /proc/sys/kernel/sched_window_stats_policy ] &&
+                echo 2 > /proc/sys/kernel/sched_window_stats_policy
+            [ -w /proc/sys/kernel/sched_ravg_hist_size ] &&
+                echo 5 > /proc/sys/kernel/sched_ravg_hist_size
         else
-            echo 3 > /proc/sys/kernel/sched_window_stats_policy
-            echo 3 > /proc/sys/kernel/sched_ravg_hist_size
+            [ -w /proc/sys/kernel/sched_window_stats_policy ] &&
+                echo 3 > /proc/sys/kernel/sched_window_stats_policy
+            [ -w /proc/sys/kernel/sched_ravg_hist_size ] &&
+                echo 3 > /proc/sys/kernel/sched_ravg_hist_size
         fi
         #Apply settings for sdm660, sdm636,sda636
         case "$soc_id" in
