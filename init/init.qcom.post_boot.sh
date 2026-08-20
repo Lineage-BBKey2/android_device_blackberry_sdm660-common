@@ -2362,10 +2362,12 @@ case "$target" in
         case "$soc_id" in
                 "317" | "324" | "325" | "326" | "345" | "346" )
 
+            # Increase core-control hysteresis to reduce hotplug churn.
+            echo 500 > /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms
             echo 2 > /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
             echo 60 > /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres
             echo 30 > /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres
-            echo 100 > /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms
+            echo 500 > /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms
             echo 1 > /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster
             echo 4 > /sys/devices/system/cpu/cpu4/core_ctl/task_thres
 
