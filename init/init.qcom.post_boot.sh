@@ -226,7 +226,7 @@ function configure_zram_parameters() {
     MemTotalStr=`cat /proc/meminfo | grep MemTotal`
     MemTotal=${MemTotalStr:16:8}
 
-    # Select zram compression algo from custom prop if populated (kernel default is lzo).
+    # Allow a supported custom compressor to override the kernel default.
     requested=$(getprop persist.vendor.key2.zram.compressor)
     if [ -n "$requested" ] && \
         grep -qw "$requested" /sys/block/zram0/comp_algorithm; then
