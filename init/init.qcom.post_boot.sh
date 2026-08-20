@@ -2390,62 +2390,31 @@ case "$target" in
             # disable thermal bcl hotplug to switch governor
             echo 0 > /sys/module/msm_thermal/core_control/enabled
 
-            # Determine if device is Athena or Luna
-            prop_device=$(getprop ro.product.device)
-            prop_sysname=$(getprop ro.product.system.name)
-            prop_lindev=$(getprop ro.lineage.device)
-            is_athena="0"
-            is_luna="0"
-            if [ "$prop_device" = "bbf100" ] || [ "$prop_device" = "athena" ] || \
-               [ "$prop_sysname" = "lineage_athena" ] || [ "$prop_lindev" = "athena" ]; then
-                is_athena="1"
-            elif [ "$prop_device" = "bbe100" ] || [ "$prop_device" = "luna" ] || \
-                 [ "$prop_sysname" = "lineage_luna" ] || [ "$prop_lindev" = "luna" ]; then
-                is_luna="1"
-            fi
-
-            # online CPU0
+            # Bring the policy CPUs online before changing their governors.
             echo 1 > /sys/devices/system/cpu/cpu0/online
-            # configure governor settings for little cluster
-            echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-            echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load
-            echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif
-            echo "19000 1401600:39000" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
-            echo 90 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load
-            echo 20000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
-            echo 1401600 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
-            echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy
-            if [ "$is_athena" = "1" ]; then
-                echo "85 1747200:95" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
-            elif [ "$is_luna" = "1" ]; then
-                echo "85 1612800:95" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
-            fi
-            echo 39000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time
-            echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis
-            echo 633600 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-            echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/ignore_hispeed_on_notif
-            echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/fast_ramp_down
-            # online CPU4
             echo 1 > /sys/devices/system/cpu/cpu4/online
-            # configure governor settings for big cluster
-            echo "interactive" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
-            echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load
-            echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_migration_notif
-            echo "19000 1401600:39000" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay
-            echo 90 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load
-            echo 20000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
-            echo 1401600 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq
-            echo 0 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy
-            if [ "$is_athena" = "1" ]; then
-                echo "85 1401600:90 2150400:95" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
-            elif [ "$is_luna" = "1" ]; then
-                echo "85 1401600:90 1804800:95" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
-            fi
-            echo 39000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time
-            echo 0 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis
-            echo 1113600 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
-            echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/ignore_hispeed_on_notif
-            echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/fast_ramp_down
+
+            # Kernel 4.19 does not provide the interactive governor. Use the
+            # per-policy schedutil nodes shared by Athena and Luna instead.
+            policy0=/sys/devices/system/cpu/cpufreq/policy0
+            echo "schedutil" > $policy0/scaling_governor
+            echo 1000 > $policy0/schedutil/up_rate_limit_us
+            echo 3000 > $policy0/schedutil/down_rate_limit_us
+            echo 1401600 > $policy0/schedutil/hispeed_freq
+            echo 85 > $policy0/schedutil/hispeed_load
+            echo 0 > $policy0/schedutil/pl
+            echo 902400 > $policy0/schedutil/rtg_boost_freq
+            echo 633600 > $policy0/scaling_min_freq
+
+            policy4=/sys/devices/system/cpu/cpufreq/policy4
+            echo "schedutil" > $policy4/scaling_governor
+            echo 1000 > $policy4/schedutil/up_rate_limit_us
+            echo 3000 > $policy4/schedutil/down_rate_limit_us
+            echo 1401600 > $policy4/schedutil/hispeed_freq
+            echo 85 > $policy4/schedutil/hispeed_load
+            echo 0 > $policy4/schedutil/pl
+            echo 0 > $policy4/schedutil/rtg_boost_freq
+            echo 1113600 > $policy4/scaling_min_freq
 
             # bring all cores online
             echo 1 > /sys/devices/system/cpu/cpu0/online
