@@ -1,6 +1,3 @@
-# Console
-ro.boot.serialconsole=0
-
 # Audio
 af.fast_track_multiplier=1
 audio.deep_buffer.media=true
