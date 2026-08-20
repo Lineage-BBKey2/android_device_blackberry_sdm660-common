@@ -162,9 +162,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor
 
-# Vibrator (QTI service supporting qti-haptics input FF on 4.19)
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service
+# Vibrator - QTI haptics HAL for the kernel 4.19 input FF interface.
+# The product configuration also excludes haptic input devices from
+# InputReader while leaving them available to the vibrator HAL.
+$(call inherit-product, vendor/qcom/opensource/vibrator/vibrator-vendor-product.mk)
 
 # Keyboard
 PRODUCT_COPY_FILES += \
