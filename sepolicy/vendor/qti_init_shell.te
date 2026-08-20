@@ -24,3 +24,9 @@ allow qti_init_shell vendor_hwkey_prop:property_service set;
 # Keyboard layout detection - trace_util reads traceability partition
 allow qti_init_shell block_device:blk_file { open read getattr };
 allow qti_init_shell block_device:lnk_file { read getattr };
+
+# Selecting the kernel 4.19 mem_latency devfreq governor creates one
+# performance event for each CPU. Permit the post-boot script to start
+# those kernel monitors so the CPU-to-DDR latency devices do not remain
+# on the powersave governor.
+allow qti_init_shell self:perf_event cpu;
