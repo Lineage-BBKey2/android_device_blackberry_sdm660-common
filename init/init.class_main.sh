@@ -33,8 +33,14 @@
 baseband=`getprop ro.baseband`
 sgltecsfb=`getprop persist.vendor.radio.sglte_csfb`
 datamode=`getprop persist.vendor.data.mode`
-rild_status=`getprop init.svc.ril-daemon`
-vendor_rild_status=`getprop init.svc.vendor.ril-daemon`
+# Android 14+ moved init.svc.{ril-daemon,vendor.ril-daemon} into the
+# plat-private SELinux type init_service_status_private_prop, which
+# vendor sepolicy can't reference. The getprop denials were benign (the
+# downstream `[ -n "$X" ]` and `[[ -z "$X" || "$X" = "stopped" ]]`
+# branches all behaved correctly with empty values), so we just keep the
+# variables unset to silence the audit-log noise.
+rild_status=
+vendor_rild_status=
 
 case "$baseband" in
     "apq" | "sda" | "qcs" )
@@ -103,10 +109,10 @@ case "$baseband" in
         fi
     fi
 
-    # Get ril-daemon status again to ensure that we have latest info
-    rild_status=`getprop init.svc.ril-daemon`
-    vendor_rild_status=`getprop init.svc.vendor.ril-daemon`
-
+    # init.svc.{ril-daemon,vendor.ril-daemon} are plat-private on A14+
+    # (see top-of-file comment); we leave the variables unset, so the
+    # condition below collapses to "always start vendor.qcrild" -- which
+    # is correct on both BlackBerry targets, where vendor.qcrild is the RIL.
     if [[ -z "$rild_status" || "$rild_status" = "stopped" ]] && [[ -z "$vendor_rild_status" || "$vendor_rild_status" = "stopped" ]]; then
       start vendor.qcrild
     fi
