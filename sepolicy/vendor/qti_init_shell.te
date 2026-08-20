@@ -25,6 +25,10 @@ allow qti_init_shell vendor_hwkey_prop:property_service set;
 allow qti_init_shell block_device:blk_file { open read getattr };
 allow qti_init_shell block_device:lnk_file { read getattr };
 
+# trace_util reads /proc/sys/vm/overcommit_memory while mapping the
+# traceability partition used for physical-keyboard layout detection.
+allow qti_init_shell proc_overcommit_memory:file r_file_perms;
+
 # Selecting the kernel 4.19 mem_latency devfreq governor creates one
 # performance event for each CPU. Permit the post-boot script to start
 # those kernel monitors so the CPU-to-DDR latency devices do not remain
