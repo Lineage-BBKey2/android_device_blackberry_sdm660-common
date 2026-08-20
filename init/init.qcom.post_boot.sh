@@ -2448,9 +2448,9 @@ case "$target" in
             # Set Memory parameters
             configure_memory_parameters
 
-            # Enable bus-dcvs
-            for cpubw in /sys/class/devfreq/*qcom,cpubw*
-            do
+            # Enable bus-dcvs using the kernel 4.19 devfreq node.
+            cpubw=/sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw
+            if [ -d "$cpubw" ]; then
                 echo "bw_hwmon" > $cpubw/governor
                 echo 50 > $cpubw/polling_interval
                 echo 762 > $cpubw/min_freq
@@ -2462,21 +2462,25 @@ case "$target" in
                 echo 20 > $cpubw/bw_hwmon/hist_memory
                 echo 0 > $cpubw/bw_hwmon/hyst_length
                 echo 80 > $cpubw/bw_hwmon/down_thres
-                echo 0 > $cpubw/bw_hwmon/low_power_ceil_mbps
-                echo 34 > $cpubw/bw_hwmon/low_power_io_percent
-                echo 20 > $cpubw/bw_hwmon/low_power_delay
                 echo 0 > $cpubw/bw_hwmon/guard_band_mbps
                 echo 250 > $cpubw/bw_hwmon/up_scale
                 echo 1600 > $cpubw/bw_hwmon/idle_mbps
-            done
+            fi
 
-            for memlat in /sys/class/devfreq/*qcom,memlat-cpu*
+            for memlat in /sys/class/devfreq/soc:qcom,cpu*-cpu-ddr-lat
             do
+                [ -d "$memlat" ] || continue
                 echo "mem_latency" > $memlat/governor
                 echo 10 > $memlat/polling_interval
                 echo 400 > $memlat/mem_latency/ratio_ceil
             done
-            echo "cpufreq" > /sys/class/devfreq/soc:qcom,mincpubw/governor
+
+            for latfloor in /sys/class/devfreq/soc:qcom,cpu*-cpu-ddr-latfloor
+            do
+                [ -d "$latfloor" ] || continue
+                echo "compute" > $latfloor/governor
+                echo 10 > $latfloor/polling_interval
+            done
 
             # Start cdsprpcd only for sdm660 and disable for sdm630 and sdm636
             case "$soc_id" in
