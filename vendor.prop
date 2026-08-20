@@ -114,11 +114,11 @@ ro.vendor.bluetooth.wipower=false
 vendor.bluetooth.soc=cherokee
 vendor.qcom.bluetooth.soc=cherokee
 
-## Keep GL preloading enabled. Athena and Luna both build without Shadow Call
-## Stack, so its historical preload workaround is unnecessary. Preloading also
-## avoids repeated per-app EGL display initialization and termination with the
-## legacy Adreno userspace stack.
-ro.zygote.disable_gl_preload=0
+## Disable zygote GL preloading to avoid userspace Shadow Call Stack crashes
+## in application processes using the legacy Adreno graphics stack. Userspace
+## SCS instrumentation is independent of the kernel SHADOW_CALL_STACK option;
+## enabling preload causes repeated Bluetooth and NFC process crashes.
+ro.zygote.disable_gl_preload=1
 
 # Camera
 camera.aux.packagelist=net.sourceforge.opencamera,org.codeaurora.snapcam,org.lineageos.aperture
