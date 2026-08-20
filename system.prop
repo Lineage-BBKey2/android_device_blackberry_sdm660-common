@@ -20,7 +20,6 @@ persist.camera.debug_img_exif=1
 persist.camera.privapp.list=org.codeaurora.snapcam
 
 # Graphics
-debug.hwui.skia_atrace_enabled=false
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
 sdm.debug.disable_skip_validate=1
@@ -122,18 +121,8 @@ persist.data.df.dev_name=rmnet0
 # 2 or anything else is camera2
 persist.radio.VT_CAM_INTERFACE=2
 
-#hwui properties
-ro.hwui.texture_cache_size=72
-ro.hwui.layer_cache_size=48
-ro.hwui.r_buffer_cache_size=8
-ro.hwui.path_cache_size=32
-ro.hwui.gradient_cache_size=1
-ro.hwui.drop_shadow_cache_size=6
-ro.hwui.texture_cache_flushrate=0.4
-ro.hwui.text_small_cache_width=1024
-ro.hwui.text_small_cache_height=1024
-ro.hwui.text_large_cache_width=2048
-ro.hwui.text_large_cache_height=2048
+# Use Android framework HWUI cache defaults for the 1080p panels shared by
+# Athena and Luna.
 
 #set maximum supported adapter voltage
 persist.chg.max_volt_mv=9000
