@@ -108,13 +108,14 @@ on boot
 #Load WLAN driver
    insmod /system/vendor/lib/modules/wlan.ko
 
-#USB controller configuration
+# USB controller configuration
     setprop vendor.usb.rndis.func.name "rndis_bam"
     setprop vendor.usb.rmnet.func.name "rmnet_bam"
     setprop vendor.usb.rmnet.inst.name "rmnet"
     setprop vendor.usb.dpl.inst.name "dpl"
     write /sys/module/usb_f_qcrndis/parameters/rndis_dl_max_xfer_size 15916
-    setprop sys.usb.configfs 1
+    # init.qcom.usb.rc selects the appropriate configfs mode from
+    # vendor.usb.use_gadget_hal.
 
 #Peripheral manager
 service vendor.per_mgr /system/vendor/bin/pm-service

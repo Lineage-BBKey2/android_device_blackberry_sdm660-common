@@ -333,6 +333,13 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/msm_npu             0644   system     system
 
 # USB role switch
+# The QTI AIDL USB HAL runs as system and controls the kernel 4.19
+# Type-C port through these attributes.
+/sys/class/typec/port0	data_role	0660	system	system
+/sys/class/typec/port0	power_role	0660	system	system
+/sys/class/typec/port0	port_type	0660	system	system
+
+# Retain the legacy entries as harmless compatibility rules.
 /sys/class/dual_role_usb/*	data_role	0660	system	system
 /sys/class/dual_role_usb/*	power_role	0660	system	system
 /sys/class/dual_role_usb/*	mode		0660	system	system
