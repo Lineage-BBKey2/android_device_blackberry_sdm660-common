@@ -4224,3 +4224,17 @@ esac
 misc_link=$(ls -l /dev/block/bootdevice/by-name/misc)
 real_path=${misc_link##*>}
 setprop persist.vendor.mmi.misc_dev_path $real_path
+
+# Charger mode runs this same oneshot service. Apply the low-power override
+# last so target-specific post-boot tuning cannot overwrite it.
+if [ "$(getprop ro.bootmode)" = "charger" ]; then
+    for policy in policy0 policy4; do
+        governor=/sys/devices/system/cpu/cpufreq/$policy/scaling_governor
+        [ -w "$governor" ] && echo powersave > "$governor"
+    done
+
+    for cpu in 1 2 3 4 5 6 7; do
+        online=/sys/devices/system/cpu/cpu${cpu}/online
+        [ -w "$online" ] && echo 0 > "$online"
+    done
+fi
