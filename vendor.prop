@@ -1,3 +1,8 @@
+# Adoptable storage encryption
+# Kernel 4.19 does not support the legacy AES-256-HEH filename mode.
+# Use the standard fscrypt modes supported by this kernel.
+ro.crypto.volume.options=aes-256-xts:aes-256-cts
+
 # Audio
 af.fast_track_multiplier=1
 audio.deep_buffer.media=true
