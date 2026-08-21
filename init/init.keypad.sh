@@ -5,7 +5,21 @@
 
 KL=$(/vendor/bin/trace_util r 8 2>/dev/null)
 NUM=${KL%% *}
-if [ -n "$NUM" ]; then
-    echo "$NUM" > /sys/devices/keypad/kl
+
+KL_NODE=
+
+for node in \
+    /sys/devices/keypad/kl \
+    /sys/devices/platform/keypad/kl \
+    /sys/bus/i2c/devices/1-0040/kl
+do
+    if [ -w "$node" ]; then
+        KL_NODE="$node"
+        break
+    fi
+done
+
+if [ -n "$NUM" ] && [ -n "$KL_NODE" ]; then
+    echo "$NUM" > "$KL_NODE" || exit 1
     setprop ro.hwf.keypadlanguage "$KL"
 fi
