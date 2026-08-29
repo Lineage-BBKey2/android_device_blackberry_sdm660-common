@@ -18,4 +18,15 @@ genfscon sysfs /devices/virtual/tp_device/tp_button/button_enable               
 # Touch keypad
 genfscon sysfs /devices/soc/c175000.i2c/i2c-1/1-0020/input/input1 u:object_r:sysfs_touch_keypad:s0
 
+# Wakeup-source statistics read by system_suspend. Label stable parent
+# directories so dynamically allocated wakeupN names inherit sysfs_wakeup.
+genfscon sysfs /devices/platform/soc/ca0c000.qcom,cci/ca0c000.qcom,cci:qcom,camera@0/video4linux/video3/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/ca0c000.qcom,cci/ca0c000.qcom,cci:qcom,camera@1/video4linux/video4/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/ca0c000.qcom,cci/ca0c000.qcom,cci:qcom,camera@1/video4linux/video5/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/ca0c000.qcom,cci/ca0c000.qcom,cci:qcom,camera@2/video4linux/video4/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/ca0c000.qcom,cci/ca0c000.qcom,cci:qcom,camera@2/video4linux/video5/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/c175000.i2c/i2c-1/1-0020/synaptics_dsx.0/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/c175000.i2c/i2c-1/1-0040/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/c178000.i2c/i2c-4/4-0038/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/0.goodix_gf3206/wakeup u:object_r:sysfs_wakeup:s0
 
