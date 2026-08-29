@@ -17,3 +17,6 @@ type sysfs_touch_nav_buttons, sysfs_type, fs_type;
 type sysfs_touch_glove_mode, sysfs_type, fs_type;
 type sysfs_touch_wake_gesture, sysfs_type, fs_type;
 type sysfs_touch_keypad, sysfs_type, fs_type;
+
+# Traceability partition read by trace_util for keyboard layout detection
+type traceability_block_device, dev_type;

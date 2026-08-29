@@ -26,6 +26,7 @@
 
 # Partitions (Non-A/B)
 /dev/block/platform/soc/c0c4000\.sdhci/by-name/storesec                        u:object_r:boot_block_device:s0
+/dev/block/mmcblk0p2                                                            u:object_r:traceability_block_device:s0
 
 # tombstones
 /data/vendor/tombstones/rfs(/.*)?      u:object_r:rfs_tombstone_data_file:s0
