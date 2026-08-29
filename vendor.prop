@@ -154,6 +154,9 @@ dalvik.vm.heapsize=512m
 dalvik.vm.heapstartsize=8m
 dalvik.vm.heaptargetutilization=0.75
 
+# Low memory killer
+ro.lmk.kill_heaviest_task=true
+
 # Data
 ro.vendor.use_data_netmgrd=true
 persist.vendor.data.mode=concurrent
