@@ -28,6 +28,10 @@ allow qti_init_shell traceability_block_device:blk_file { open read getattr };
 # traceability partition used for physical-keyboard layout detection.
 allow qti_init_shell proc_overcommit_memory:file r_file_perms;
 
+# Disable clustered swap read-ahead for ZRAM-backed swap.
+# init.qcom.post_boot.sh writes /proc/sys/vm/page-cluster.
+allow qti_init_shell proc_page_cluster:file w_file_perms;
+
 # Selecting the kernel 4.19 mem_latency devfreq governor creates one
 # performance event for each CPU. Permit the post-boot script to start
 # those kernel monitors so the CPU-to-DDR latency devices do not remain

@@ -226,6 +226,10 @@ function configure_zram_parameters() {
     MemTotalStr=`cat /proc/meminfo | grep MemTotal`
     MemTotal=${MemTotalStr:16:8}
 
+    # Disable swap read-ahead for random ZRAM-backed anonymous-page faults.
+    # Read only the faulted page instead of an eight-page cluster.
+    echo 0 > /proc/sys/vm/page-cluster
+
     # Allow a supported custom compressor to override the kernel default.
     requested=$(getprop persist.vendor.key2.zram.compressor)
     if [ -n "$requested" ] && \
