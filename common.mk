@@ -207,9 +207,7 @@ PRODUCT_PACKAGES += \
     gps.conf \
     gnss_antenna_info.conf \
     flp.conf \
-    lowi.conf \
-    sap.conf \
-    xtwifi.conf
+    lowi.conf
 
 # Init
 $(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):init_blackberry_sdm660)

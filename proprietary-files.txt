@@ -178,7 +178,6 @@ vendor/bin/xtwifi-client|7e5cb0670b20c12fbc5cbf4fb642efdd72e92f46
 vendor/bin/xtwifi-inet-agent|73eb9393ba634d805055eea3fbea64785063be4b
 vendor/etc/cacert_location.pem|0789bf799c7e45d352a83e2f79ddb0cea86db85b
 vendor/etc/izat.conf|a795b79b68e3705c0334432dded0c0d246f47cb3|a6041ab6c9da7c8a0ca136518a8f55a6d6321dfd
-vendor/etc/lowi.conf|2045e83483849a124e5fef052b59190f1b784df0
 vendor/etc/sap.conf|b5ea86d9d9ee36dc13194474d343dae36f6fa032
 vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml|6514b13f55abc0acc28e004c35ff93fb972d61a9
 vendor/etc/xtra_root_cert.pem|f55a31ec4d9cf8ce2724acadecf00c779f8767db
@@ -580,7 +579,6 @@ vendor/lib64/vendor.qti.imsrtpservice@3.0.so;MODULE_SUFFIX=_vendor|460e589128fce
 
 # Sensors
 vendor/bin/sensors.qti
-vendor/etc/sap.conf
 vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
 vendor/lib/sensor_calibrate.so
