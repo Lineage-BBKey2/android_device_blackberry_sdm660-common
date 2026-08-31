@@ -27,6 +27,7 @@ namespace_imports = [
     'hardware/qcom-caf/wlan',
     'vendor/qcom/opensource/dataservices',
     'vendor/qcom/opensource/data-ipa-cfg-mgr-legacy-um',
+    'vendor/qcom/opensource/display',
 ]
 
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
