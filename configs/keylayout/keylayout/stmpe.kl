@@ -38,7 +38,7 @@ key 54    SHIFT_RIGHT
 key 56    ALT_LEFT
 key 57    SPACE
 key 100   SYM
-key 110   FUNCTION
+key 110   CTRL_RIGHT
 key 143   WAKEUP
 
 # Below: Keys from generic key layout file that are not on Blackberry Physical Keyboard
