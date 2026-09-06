@@ -38,7 +38,8 @@ persist.vendor.wigig.npt.enable         u:object_r:vendor_radio_prop:s0
 ro.hardware.chipname                    u:object_r:exported_default_prop:s0
 
 # Touch keypad
-persist.vendor.touchkeypad.disabled     u:object_r:vendor_touchkeypad_prop:s0
+persist.vendor.touchkeypad.disabled              u:object_r:vendor_touchkeypad_prop:s0
+persist.vendor.touchkeypad.scrolling_disabled    u:object_r:vendor_touchkeypad_scrolling_prop:s0
 
 # Custom prop to enable selecting zram compression algorithm
 persist.vendor.key2.zram.compressor     u:object_r:vendor_default_prop:s0

@@ -13,5 +13,8 @@ vendor_internal_prop(vendor_fingerprint_prop);
 # bochenekk mods - hwkeys stuff
 vendor_internal_prop(vendor_hwkey_prop);
 
-# Touch keypad toggle
+# Touch keypad scrolling
+vendor_public_prop(vendor_touchkeypad_scrolling_prop);
+
+# Touch keypad hardware power
 vendor_public_prop(vendor_touchkeypad_prop);

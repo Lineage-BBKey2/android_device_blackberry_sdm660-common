@@ -1,1 +1,5 @@
 get_prop(appdomain, exported_camera_prop);
+
+# ViewRootImpl runs inside application processes and reads this property
+# to decide whether capacitive-keyboard scrolling should be synthesized.
+get_prop(appdomain, vendor_touchkeypad_scrolling_prop)
