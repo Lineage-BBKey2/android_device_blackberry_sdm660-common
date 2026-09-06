@@ -1,2 +1,3 @@
 allow platform_app sysfs_kgsl:dir search;
+set_prop(platform_app, vendor_touchkeypad_scrolling_prop)
 set_prop(platform_app, vendor_touchkeypad_prop)
