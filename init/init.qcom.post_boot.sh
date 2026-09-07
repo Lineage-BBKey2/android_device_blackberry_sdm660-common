@@ -238,7 +238,7 @@ function configure_zram_parameters() {
     # For 1GB Go device, size = 768MB, set same for Non-Go.
     # For 2GB-3GB Non-Go device, size = 1GB
     # For 3GB-5GB Non-Go device, size = 2GB (Key2 LE)
-    # For >=5GB Non-Go device, size = 3GB (Key2)
+    # For >=5GB Non-Go device, size = 2.5GB (Key2)
     if [ -f /sys/block/zram0/disksize ]; then
         if [ $MemTotal -le 524288 ]; then
             echo 402653184 > /sys/block/zram0/disksize
@@ -249,8 +249,8 @@ function configure_zram_parameters() {
         elif [ $MemTotal -le 5242880 ]; then
             echo 2147483648 > /sys/block/zram0/disksize
         else
-            # Set Zram disk size=3GB for >=5GB Non-Go targets.
-            echo 3221225472 > /sys/block/zram0/disksize
+            # Set Zram disk size=2.5GB for >=5GB Non-Go targets.
+            echo 2684354560 > /sys/block/zram0/disksize
         fi
         mkswap /dev/block/zram0
         swapon /dev/block/zram0 -p 32758
