@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: 2026 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<haptic-feedback-constants>
+    <!--
+        BIOMETRIC_CONFIRM
+
+        Use the full configured device voltage for 30 ms, matching the
+        legacy vibrator HAL fallback used by the kernel 4.4 builds.
+    -->
+    <constant id="10004">
+        <vibration-effect>
+            <waveform-effect>
+                <waveform-entry durationMs="30" amplitude="255"/>
+            </waveform-effect>
+        </vibration-effect>
+    </constant>
+
+    <!--
+        BIOMETRIC_REJECT
+
+        Match the legacy double-click fallback: 30 ms on, 100 ms off,
+        then 30 ms on.
+    -->
+    <constant id="10005">
+        <vibration-effect>
+            <waveform-effect>
+                <waveform-entry durationMs="30" amplitude="255"/>
+                <waveform-entry durationMs="100" amplitude="0"/>
+                <waveform-entry durationMs="30" amplitude="255"/>
+            </waveform-effect>
+        </vibration-effect>
+    </constant>
+</haptic-feedback-constants>

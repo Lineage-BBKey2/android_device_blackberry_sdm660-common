@@ -174,6 +174,11 @@ PRODUCT_PACKAGES += \
 # InputReader while leaving them available to the vibrator HAL.
 $(call inherit-product, vendor/qcom/opensource/vibrator/vibrator-vendor-product.mk)
 
+# Use full-voltage waveforms for biometric confirmation and rejection,
+# matching the legacy kernel 4.4 vibrator fallback behavior.
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/configs/haptic_feedback_customization.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/haptic_feedback_customization.xml
+
 # Keyboard
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(COMMON_PATH)/configs/keylayout/keychars,$(TARGET_COPY_OUT_VENDOR)/usr/keychars/) \

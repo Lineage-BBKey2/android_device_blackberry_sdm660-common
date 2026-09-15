@@ -211,6 +211,9 @@
         <item>40</item>
     </integer-array>
 
+    <!-- Device-specific haptic effects loaded by VibratorManagerService. -->
+    <string name="config_hapticFeedbackCustomizationFile">/product/etc/haptic_feedback_customization.xml</string>
+
     <!-- AOSP WFD -->
     <bool name="config_enableWifiDisplay">true</bool>
 
