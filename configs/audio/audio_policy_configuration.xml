@@ -275,6 +275,8 @@
                        sources="primary output,deep_buffer,compressed_offload,voip_rx,BT SCO Headset Mic,Telephony Rx"/>
                 <route type="mix" sink="Wired Headphones"
                        sources="primary output,deep_buffer,compressed_offload,voip_rx,BT SCO Headset Mic,Telephony Rx"/>
+                <route type="mix" sink="HDMI"
+                       sources="primary output,deep_buffer,direct_pcm,compressed_offload,compress_passthrough"/>
                 <route type="mix" sink="Telephony Tx"
                        sources="voice_tx"/>
                 <route type="mix" sink="primary input"
