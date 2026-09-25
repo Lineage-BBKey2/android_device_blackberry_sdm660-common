@@ -16,6 +16,7 @@ allow macloader wifi_data_file:file create_file_perms;
 allow macloader bluetooth_data_file:dir rw_dir_perms;
 allow macloader bluetooth_data_file:file create_file_perms;
 allow macloader block_device:blk_file { getattr open read };
+allow macloader traceability_block_device:blk_file { getattr open read };
 allow macloader block_device:lnk_file read;
 allow macloader sysfs:file read;
 unix_socket_connect(macloader, property, init)
