@@ -31,6 +31,7 @@
 using android::base::SetProperty;
 
 static const std::unordered_set<int> singlesim_prds = {
+    // Athena Single-SIM PRDs
     63824001,
     63824009,
     63824013,
@@ -66,7 +67,25 @@ static const std::unordered_set<int> singlesim_prds = {
     63825006,
     63825007,
     63825014,
-    63825015
+    63825015,
+    63831001,
+    63831002,
+    // Luna Single-SIM PRDs
+    65001001,
+    65001005,
+    65001007,
+    65001008,
+    65001011,
+    65001015,
+    65001501,
+    65001507,
+    65001508,
+    65001511,
+    65002010,
+    65002011,
+    65012001,
+    65012002,
+    65012003,
 };
 
 void property_override(const std::string& prop,
