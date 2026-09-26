@@ -1,0 +1,10 @@
+# Keep the optional FocalTech host-side DT2W mode in sync with its persistent
+# per-device setting. Wait for the driver node so restoration is not dependent
+# on touchscreen probe and persistent-property loading order.
+on property:persist.vendor.focaltech.host_dt2w=0
+    wait /sys/devices/virtual/tp_device/tp_gesture/host_dt2w_enable 5
+    write /sys/devices/virtual/tp_device/tp_gesture/host_dt2w_enable 0
+
+on property:persist.vendor.focaltech.host_dt2w=1
+    wait /sys/devices/virtual/tp_device/tp_gesture/host_dt2w_enable 5
+    write /sys/devices/virtual/tp_device/tp_gesture/host_dt2w_enable 1

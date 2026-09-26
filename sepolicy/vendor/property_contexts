@@ -41,5 +41,8 @@ ro.hardware.chipname                    u:object_r:exported_default_prop:s0
 persist.vendor.touchkeypad.disabled              u:object_r:vendor_touchkeypad_prop:s0
 persist.vendor.touchkeypad.scrolling_disabled    u:object_r:vendor_touchkeypad_scrolling_prop:s0
 
+# FocalTech host-side DT2W compatibility mode
+persist.vendor.focaltech.host_dt2w               u:object_r:vendor_focaltech_host_dt2w_prop:s0 exact bool
+
 # Custom prop to enable selecting zram compression algorithm
 persist.vendor.key2.zram.compressor     u:object_r:vendor_default_prop:s0

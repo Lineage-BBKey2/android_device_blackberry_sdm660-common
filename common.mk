@@ -165,6 +165,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint-service.lineage
 
+# FocalTech DT2W compatibility mode
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/init/init.host_dt2w.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.host_dt2w.rc
+
 # Gatekeeper
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor
