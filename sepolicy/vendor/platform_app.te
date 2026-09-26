@@ -1,3 +1,7 @@
 allow platform_app sysfs_kgsl:dir search;
 set_prop(platform_app, vendor_touchkeypad_scrolling_prop)
 set_prop(platform_app, vendor_touchkeypad_prop)
+set_prop(platform_app, vendor_focaltech_host_dt2w_prop)
+
+# DeviceSettings checks for this FocalTech-only node before showing the switch.
+allow platform_app sysfs_touch_wake_gesture:file getattr;
