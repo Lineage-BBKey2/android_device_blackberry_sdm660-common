@@ -43,6 +43,13 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
+    # BEGIN Keymaster listener property compatibility
+    ('vendor/lib/libkeymasterdeviceutils.so',
+     'vendor/lib64/libkeymasterdeviceutils.so'): blob_fixup()
+        .binary_regex_replace(b'property_get\x00', b'km_prop_get\x00\x00')
+        .add_needed('libkeymasterprop.so'),
+    # END Keymaster listener property compatibility
+
     ('vendor/lib/vendor.qti.hardware.qteeconnector@1.0.so',
      'vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so',
      'vendor/lib64/vendor.qti.hardware.tui_comm@1.0_vendor.so',

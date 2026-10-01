@@ -496,3 +496,15 @@ PRODUCT_PACKAGES += \
     libhidl_shim_full \
     libutils-v33 \
     libcutils_shim
+
+# BEGIN temporary Keymaster boot diagnostics
+ifneq ($(filter userdebug eng,$(TARGET_BUILD_VARIANT)),)
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/init/init.keymaster-boot-debug.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/init.keymaster-boot-debug.rc \
+    $(COMMON_PATH)/init/keymaster-boot-debug.sh:$(TARGET_COPY_OUT_SYSTEM)/etc/keymaster-boot-debug.sh
+endif
+# END temporary Keymaster boot diagnostics
+
+# BEGIN Keymaster listener property compatibility
+PRODUCT_PACKAGES += libkeymasterprop
+# END Keymaster listener property compatibility

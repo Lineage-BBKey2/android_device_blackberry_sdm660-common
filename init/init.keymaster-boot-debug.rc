@@ -1,0 +1,11 @@
+# Temporary userdebug/eng logger, installed in /system/etc/init.
+on post-fs && property:ro.debuggable=1
+    start keymaster-boot-debug
+
+service keymaster-boot-debug /system/bin/sh /system/etc/keymaster-boot-debug.sh
+    class core
+    user root
+    group root log readproc
+    disabled
+    oneshot
+    seclabel u:r:su:s0
