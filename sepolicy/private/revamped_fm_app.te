@@ -1,13 +1,14 @@
-# RevampedFMRadio runs with the system UID but has a dedicated domain so
-# Qualcomm FM access does not have to be granted to every system_app.
+# RevampedFMRadio uses a dedicated domain for both legacy system-UID installs
+# and new installs with an application UID, so Qualcomm FM access does not
+# have to be granted to broader application domains.
 typeattribute revamped_fm_app coredomain;
 
 app_domain(revamped_fm_app)
 
-# Access RevampedFMRadio's system-UID application data. MCS categories
-# assigned by seapp_contexts restrict this access to the app's own data.
-allow revamped_fm_app system_app_data_file:dir create_dir_perms;
-allow revamped_fm_app system_app_data_file:{ file lnk_file } create_file_perms;
+# Access RevampedFMRadio's legacy system-UID data and its application-UID data.
+# MCS categories assigned by seapp_contexts restrict access to the app's data.
+allow revamped_fm_app { system_app_data_file privapp_data_file }:dir create_dir_perms;
+allow revamped_fm_app { system_app_data_file privapp_data_file }:{ file lnk_file } create_file_perms;
 
 # Permit discovery of ordinary framework APIs available to applications.
 allow revamped_fm_app app_api_service:service_manager find;
