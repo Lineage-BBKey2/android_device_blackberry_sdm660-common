@@ -231,6 +231,8 @@ persist.vendor.radio.procedure_bytes=SKIP
 persist.vendor.radio.data_con_rprt=1
 persist.vendor.radio.data_ltd_sys_ind=1
 vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
+# The BlackBerry modem supports modem-controlled IWLAN, not the AP-assisted capability API.
+ro.telephony.iwlan_operation_mode=legacy
 
 # RIL
 vendor.service.qti.ims.enabled=1
