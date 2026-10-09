@@ -2,4 +2,23 @@
 <resources>
     <!-- Show virtual/onscreen keyboard even when hardware keyboard is connected -->
     <bool name="def_show_ime_with_hard_keyboard">false</bool>
+
+    <!-- Default font-size slider position 3/7. -->
+    <item name="def_device_font_scale" format="float" type="dimen">1.15</item>
+
+    <!-- Default display-size slider position 3/7. -->
+    <integer name="def_display_density_forced">380</integer>
+
+    <!-- Migration arrays for dirty flash of display-density rounding change. -->
+    <integer-array name="config_display_density_migration_from">
+        <item>294</item>
+        <item>336</item>
+        <item>378</item>
+    </integer-array>
+
+    <integer-array name="config_display_density_migration_to">
+        <item>300</item>
+        <item>340</item>
+        <item>380</item>
+    </integer-array>
 </resources>
