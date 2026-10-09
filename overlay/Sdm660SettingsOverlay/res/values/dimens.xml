@@ -7,4 +7,11 @@
 <resources>
     <item name="fingerprint_sensor_location_fraction_x" type="fraction">50%</item>
     <item name="fingerprint_sensor_location_fraction_y" type="fraction">93%</item>
+
+    <!--
+         Generate seven display-size choices in 40dpi steps around the
+         420dpi base density: 300, 340, 380, 420, 460, 500, 540
+         rather than the previous 294, 336, 378, 420, 460, 500, 540.
+    -->
+    <fraction name="display_density_min_scale">71.428571%</fraction>
 </resources>
