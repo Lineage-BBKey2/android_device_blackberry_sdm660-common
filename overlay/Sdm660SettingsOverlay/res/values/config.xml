@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <!-- Athena and Luna: use the tested SIM power API when UICC application toggling is absent. -->
+    <bool name="config_enable_legacy_sim_power_toggle">true</bool>
+</resources>
